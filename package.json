@@ -1,0 +1,35 @@
+{
+  "name": "auhorization-with-graphql",
+  "version": "0.1.0",
+  "description": "Example repository accompanying a comparison of different ways of authorization with GraphQL",
+  "keywords": [
+    "graphql",
+    "auth",
+    "authorization",
+    "access-control"
+  ],
+  "author": {
+    "name": "Johannes Kettmann",
+    "email": "johannes@jkettmann.com",
+    "url": "https://jkettmann.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jkettmann/auhorization-with-graphql.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "apollo-server": "^2.9.2",
+    "babel-loader": "8.0.6",
+    "graphql": "^14.5.4",
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "start": "nodemon --watch ./api --exec \"babel-node --inspect --presets=@babel/env ./api/index.js\""
+  },
+  "devDependencies": {
+    "@babel/node": "^7.5.5"
+  }
+}
