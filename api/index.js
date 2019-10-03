@@ -1,12 +1,21 @@
-import { ApolloServer } from 'apollo-server';
+import { ApolloServer, makeExecutableSchema } from 'apollo-server';
+import { applyMiddleware } from 'graphql-middleware';
 import User from './User';
 import Message from './Message';
 import typeDefs from './typeDefs';
 import resolvers from './resolvers';
+import permissions from './permissions'
+
+const schema = applyMiddleware(
+  makeExecutableSchema({
+    typeDefs,
+    resolvers
+  }),
+  permissions
+);
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema,
   context: ({ req }) => {
     const token = req.headers.authorization;
     const currentUser = User.getUserByToken(token);
